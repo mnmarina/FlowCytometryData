@@ -111,6 +111,7 @@ classdef PMFlowJoXYData
                 case {3}
                     obj.SelectedExperimentKey =       varargin{1};
                     obj.SelectedParameterName =       varargin{2};
+<<<<<<< Updated upstream
                     %   obj.ParameterNamesFileName =      varargin{3};
                  
                     try
@@ -118,6 +119,14 @@ classdef PMFlowJoXYData
                     catch ME
                         rethrow(ME)
                     end
+=======
+                 %   obj.ParameterNamesFileName =      varargin{3};
+                    obj.SelectedGroups =              varargin{3}; 
+
+                  
+                   
+                      XYData_CD3 =                      obj.getXYDataCommon(varargin{4});
+>>>>>>> Stashed changes
 
                 case { 5}
                     obj.SelectedExperimentKey =       varargin{1};
@@ -190,12 +199,17 @@ classdef PMFlowJoXYData
             switch Type
                
                 case 'IndividualValues'
+<<<<<<< Updated upstream
                     MyFlowJoDataSource =        obj.getFlowJoDataSource;
                     MyGroupStatisticsLists =    MyFlowJoDataSource.getGroupStatisticsLists;
                     
                     groupStatistics =           arrayfun(@(x) x.getGroupStatisticsWithParameterName(obj.SelectedParameterName), MyGroupStatisticsLists);
                     XYDataList =                arrayfun(@(x) x.getXYData, groupStatistics);
 
+=======
+
+                   XYData =                obj.getGroupStatistics.getXYData(obj.SelectedGroups);
+>>>>>>> Stashed changes
                 case 'PercentageInRange'
                     assert(length(varargin) == 1, 'Wrong input.')
                     Range = varargin{1};
@@ -223,6 +237,32 @@ classdef PMFlowJoXYData
     end
     
 
+<<<<<<< Updated upstream
+=======
+        
+      
+        
+        
+    end
+    
+    methods (Access = private) % GETTERS FLOW-JO DATA
+        
+        function groupStatistics = getGroupStatistics(obj)
+
+            groupStatistics =          ...
+                   obj.getFlowJoDataSource.getGroupStatisticsListsForIndices(1).getGroupStatisticsWithParameterName(obj.SelectedParameterName);
+               
+            
+        end
+        
+   
+    
+        
+        
+        
+    end
+    
+>>>>>>> Stashed changes
     methods (Access = private) % GETTERS FUNDAMENTAL OBJECTS
         
         function MyGroupRows = getGroupIndicesObject(obj)

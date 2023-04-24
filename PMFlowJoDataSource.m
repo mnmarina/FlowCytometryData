@@ -208,8 +208,13 @@ classdef PMFlowJoDataSource
                                                                         ListWithGrourNames...
                                                                     );
                                                                 
+<<<<<<< Updated upstream
               catch ME
                   rethrow(ME)
+=======
+              catch
+                  error('Something went wrong.')
+>>>>>>> Stashed changes
               end
                                                                 
                 
